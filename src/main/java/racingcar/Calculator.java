@@ -9,19 +9,29 @@ public class Calculator {
     public List<Car> getWinners(List<Car> cars) {
         Car winner = cars.get(0);
         for (Car car : cars) {
-            if (car.isFartherThan(winner)) {
-                winner = car;
-            }
+            winner = updateWinner(car, winner);
         }
 
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.isAtSameMoved(winner)) {
-                winners.add(car);
-            }
+            collectWinners(car, winner, winners);
         }
         return winners;
     }
+
+    private static void collectWinners(Car car, Car winner, List<Car> winners) {
+        if (car.isAtSameMoved(winner)) {
+            winners.add(car);
+        }
+    }
+
+    private static Car updateWinner(Car car, Car winner) {
+        if (car.isFartherThan(winner)) {
+            return car;
+        }
+        return winner;
+    }
+
     // 자동차 전진 여부 결정
     public void movingCars(List<Car> cars) {
         for (Car car : cars) {
