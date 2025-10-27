@@ -7,7 +7,7 @@ public class Car {
     // 생성자
     public Car(String name) {
         this.name = name;
-        movingCount = 1;
+        movingCount = 0;
     }
 
     // 전진 횟수 출력
