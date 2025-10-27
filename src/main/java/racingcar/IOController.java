@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class IOController {
+    public static final String SHOW_WINNER_SEPARATOR = ", ";
+
     // 이름 입력
     public String getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -29,7 +31,7 @@ public class IOController {
         for (int i = 0; i < winners.size(); i++) {
             sb.append(winners.get(i).getName());
             if (i != winners.size() - 1) {
-                sb.append(", ");
+                sb.append(SHOW_WINNER_SEPARATOR);
             }
         }
 
