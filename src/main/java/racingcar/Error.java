@@ -9,11 +9,17 @@ public class Error {
     public void checkCarNamesInput(String carNamesInput) {
         String[] inputs = carNamesInput.split(",");
         for (String input : inputs) {
-            if (input.length() > NAME_LENGTH_LIMIT || input.chars().anyMatch(c -> !Character.isLetter(c))) {
-                throw new IllegalArgumentException("차의 이름은 5자 이내의 알파벳만 입력 가능합니다.");
-            }
+            validateCarName(input);
         }
     }
+
+    private void validateCarName(String input) {
+        if (input.length() > NAME_LENGTH_LIMIT
+                || input.chars().anyMatch(c -> !Character.isLetter(c))) {
+            throw new IllegalArgumentException("차의 이름은 5자 이내의 알파벳만 입력 가능합니다.");
+        }
+    }
+
 
     // 시도 횟수 입력 검증
     public void checkTrialCountInputError(String trialCountInput) {
