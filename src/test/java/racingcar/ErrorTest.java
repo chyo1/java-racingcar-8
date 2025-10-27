@@ -51,4 +51,18 @@ class ErrorTest {
         });
 
     }
+
+    @Test
+    void checkTrialCountInputErrorTest() {
+        Error error = new Error();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            error.checkTrialCountInputError("0");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            error.checkTrialCountInputError("101");
+        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            error.checkTrialCountInputError("-1");
+        });
+    }
 }
