@@ -16,6 +16,12 @@ public class IOController {
         return Console.readLine();
     }
 
+    public void showResultsByStage(List<Car> cars) {
+        for (Car car : cars) {
+            car.printMoving();
+        }
+    }
+
     // 우승자 출력
     public void showWinner(List<String> winners) {
         StringBuilder sb = new StringBuilder();
