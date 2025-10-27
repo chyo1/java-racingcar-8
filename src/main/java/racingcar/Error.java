@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,10 +30,8 @@ public class Error {
     public void checkDuplicateName(String carNamesInput) {
         String[] inputs = carNamesInput.split(",");
 
-        Set<String> carNames = new HashSet<>();
-        for (String input : inputs) {
-            carNames.add(input);
-        }
+        Set<String> carNames = new HashSet<>(Arrays.stream(inputs).toList());
+
         if (carNames.size() != inputs.length) {
             throw new IllegalArgumentException("차의 이름은 중복될 수 없습니다.");
         }
