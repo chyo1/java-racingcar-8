@@ -14,7 +14,7 @@ public class Car {
     public String printMoving() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(name + " : ");
+        sb.append(name).append(" : ");
         for (int i = 0; i < movingCount; i++) {
             sb.append("-");
         }
