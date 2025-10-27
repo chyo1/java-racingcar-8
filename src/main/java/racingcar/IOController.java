@@ -28,13 +28,11 @@ public class IOController {
     // 우승자 출력
     public void showWinner(List<Car> winners) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < winners.size(); i++) {
+        for (int i = 0; i < winners.size() - 1; i++) {
             sb.append(winners.get(i).getName());
-            if (i != winners.size() - 1) {
-                sb.append(SHOW_WINNER_SEPARATOR);
-            }
+            sb.append(SHOW_WINNER_SEPARATOR);
         }
-
+        sb.append(winners.getLast().getName());
         System.out.print("최종 우승자 : " + sb.toString());
     }
 }
