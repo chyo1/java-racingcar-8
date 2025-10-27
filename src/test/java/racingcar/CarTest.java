@@ -11,35 +11,35 @@ class CarTest {
      */
     @Test
     void printMovingTest() {
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-        Car car3 = new Car("car3");
+        Car one = new Car("one");
+        Car two = new Car("two");
+        Car three = new Car("three");
 
-        car1.move();
-        car2.move();car2.move();
-        car3.move();car3.move();car3.move();
+        one.move();
+        two.move();two.move();
+        three.move();three.move();three.move();
 
-        Assertions.assertThat(car1.printMoving()).isEqualTo("car1 : -");
-        Assertions.assertThat(car2.printMoving()).isEqualTo("car2 : --");
-        Assertions.assertThat(car3.printMoving()).isEqualTo("car3 : ---");
+        Assertions.assertThat(one.printMoving()).isEqualTo("one : -");
+        Assertions.assertThat(two.printMoving()).isEqualTo("two : --");
+        Assertions.assertThat(three.printMoving()).isEqualTo("three : ---");
     }
 
     @Test
     void isFartherThanTest() {
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
+        Car one = new Car("one");
+        Car two = new Car("two");
 
-        car1.move();
+        one.move();
 
-        Assertions.assertThat(car1.isFartherThan(car2)).isEqualTo(true);
-        Assertions.assertThat(car2.isFartherThan(car1)).isEqualTo(false);
+        Assertions.assertThat(one.isFartherThan(two)).isEqualTo(true);
+        Assertions.assertThat(two.isFartherThan(one)).isEqualTo(false);
     }
 
     @Test
     void isAtSameMovedTest() {
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
+        Car one = new Car("one");
+        Car two = new Car("two");
 
-        Assertions.assertThat(car1.isAtSameMoved(car2)).isEqualTo(true);
+        Assertions.assertThat(one.isAtSameMoved(two)).isEqualTo(true);
     }
 }
