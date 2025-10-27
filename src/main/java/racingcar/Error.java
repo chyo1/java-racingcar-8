@@ -1,12 +1,15 @@
 package racingcar;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Error {
 
     public static final int NAME_LENGTH_LIMIT = 5;
     public static final int TRIAL_COUNT_UNDER_LIMIT = 0;
     public static final int TRIAL_COUNT_UPPER_LIMIT = 100;
 
-    public void checkCarNamesInput(String carNamesInput) {
+    public void checkCarNamesInputFormat(String carNamesInput) {
         String[] inputs = carNamesInput.split(",");
         for (String input : inputs) {
             validateCarName(input);
@@ -17,6 +20,18 @@ public class Error {
         if (input.length() > NAME_LENGTH_LIMIT
                 || input.chars().anyMatch(c -> !Character.isLetter(c))) {
             throw new IllegalArgumentException("차의 이름은 5자 이내의 알파벳만 입력 가능합니다.");
+        }
+    }
+
+    public void checkDuplicateName(String carNamesInput) {
+        String[] inputs = carNamesInput.split(",");
+
+        Set<String> carNames = new HashSet<>();
+        for (String input : inputs) {
+            carNames.add(input);
+        }
+        if (carNames.size() != inputs.length) {
+            throw new IllegalArgumentException("차의 이름은 중복될 수 없습니다.");
         }
     }
 

@@ -13,12 +13,13 @@ public class RacingProcess {
 
     public void run() {
         // 자동차 입력 받기
-        String carNames = ioController.getCarNames();
+        String carNamesInput = ioController.getCarNames();
 
-        error.checkCarNamesInput(carNames);
+        error.checkCarNamesInputFormat(carNamesInput);
+        error.checkDuplicateName(carNamesInput);
 
         // 각 자동차 객체 만들기
-        String[] carNamesSplitBySeparator = carNames.split(",");
+        String[] carNamesSplitBySeparator = carNamesInput.split(",");
         for (String carName : carNamesSplitBySeparator) {
             cars.add(new Car(carName));
         }
