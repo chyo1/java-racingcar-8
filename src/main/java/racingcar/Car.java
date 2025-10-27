@@ -32,4 +32,12 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public boolean isFartherThan(Car winner) {
+        return winner.movingCount < this.movingCount;
+    }
+
+    public boolean isAtSameMoved(Car winner) {
+        return winner.movingCount == this.movingCount;
+    }
 }

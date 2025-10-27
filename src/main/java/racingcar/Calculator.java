@@ -7,14 +7,16 @@ import java.util.List;
 public class Calculator {
     // 우승자 결정
     public List<Car> getWinners(List<Car> cars) {
-        int winnerMovedCount = 0;
+        Car winner = cars.get(0);
         for (Car car : cars) {
-            winnerMovedCount = Math.max(winnerMovedCount, car.getMovingCount());
+            if (car.isFartherThan(winner)) {
+                winner = car;
+            }
         }
 
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (winnerMovedCount == car.getMovingCount()) {
+            if (car.isAtSameMoved(winner)) {
                 winners.add(car);
             }
         }
