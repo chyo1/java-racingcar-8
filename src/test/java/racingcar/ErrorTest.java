@@ -50,17 +50,12 @@ class ErrorTest {
 
     }
 
-    @Test
-    void checkTrialCountInputErrorTest() {
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "101", "-1"})
+    void checkTrialCountInputErrorTest(String input) {
         Error error = new Error();
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkTrialCountInputError("0");
-        });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkTrialCountInputError("101");
-        });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkTrialCountInputError("-1");
+            error.checkTrialCountInputError(input);
         });
     }
 }
