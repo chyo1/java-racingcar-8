@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class RacingProcess {
 
     public void run() {
@@ -10,5 +12,6 @@ public class RacingProcess {
 
         // 실행 횟수만큼 반복
         // 우승자 출력
+        Console.close();
     }
 }
