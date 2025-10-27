@@ -11,13 +11,16 @@ public class Error {
 
     public void checkCarNamesInputFormat(String carNamesInput) {
         String[] inputs = carNamesInput.split(",");
+        if (inputs.length == 0) {
+            throw new IllegalArgumentException("입력이 비어있습니다.");
+        }
         for (String input : inputs) {
             validateCarName(input);
         }
     }
 
     private void validateCarName(String input) {
-        if (input.length() > NAME_LENGTH_LIMIT
+        if (input.length() > NAME_LENGTH_LIMIT || input.isEmpty() || input.isBlank()
                 || input.chars().anyMatch(c -> !Character.isLetter(c))) {
             throw new IllegalArgumentException("차의 이름은 5자 이내의 알파벳만 입력 가능합니다.");
         }
