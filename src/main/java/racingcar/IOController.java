@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class IOController {
     // 이름 입력
@@ -16,4 +17,15 @@ public class IOController {
     }
 
     // 우승자 출력
+    public void showWinner(List<String> winners) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < winners.size(); i++) {
+            sb.append(winners.get(i));
+            if (i != winners.size() - 1) {
+                sb.append(", ");
+            }
+        }
+
+        System.out.print("최종 우승자 : " + sb.toString());
+    }
 }
