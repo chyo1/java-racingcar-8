@@ -37,12 +37,18 @@ class ErrorTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             error.checkCarNamesInputFormat("a1,b,c");
         });
+    }
+
+    @Test
+    void checkDuplicateNameTest() {
+        Error error = new Error();
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("a,a,c");
+            error.checkDuplicateName("a,a,c");
         });
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("aA,Aa,c");
+        Assertions.assertDoesNotThrow(() -> {
+            error.checkDuplicateName("aA,Aa,c");
         });
+
     }
 }
