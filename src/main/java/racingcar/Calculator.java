@@ -35,9 +35,13 @@ public class Calculator {
     // 자동차 전진 여부 결정
     public void movingCars(List<Car> cars) {
         for (Car car : cars) {
-            if (isCarMoved()) {
-                car.move();
-            }
+            moveCar(car);
+        }
+    }
+
+    private void moveCar(Car car) {
+        if (isCarMoved()) {
+            car.move();
         }
     }
 
