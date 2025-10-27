@@ -7,7 +7,7 @@ import java.util.List;
 public class Calculator {
     // 우승자 결정
     public List<Car> getWinners(List<Car> cars) {
-        Car winner = cars.get(0);
+        Car winner = cars.getFirst();
         for (Car car : cars) {
             winner = updateWinner(car, winner);
         }
