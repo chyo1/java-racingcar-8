@@ -11,4 +11,13 @@ public class Car {
     }
 
     // 전진 횟수 출력
+    public String printMoving() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(name + " : ");
+        for (int i = 0; i < movingCount; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
 }
