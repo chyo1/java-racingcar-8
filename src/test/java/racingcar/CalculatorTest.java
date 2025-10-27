@@ -73,8 +73,4 @@ class CalculatorTest {
         Assertions.assertThat(expected).isEqualTo(calculator.getWinners(cars));
     }
 
-    @Test
-    void movingCars() {
-
-    }
 }
