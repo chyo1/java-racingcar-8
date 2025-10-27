@@ -20,4 +20,8 @@ public class Car {
         }
         return sb.toString();
     }
+
+    public void move() {
+        movingCount++;
+    }
 }
