@@ -18,7 +18,7 @@ public class IOController {
 
     public void showResultsByStage(List<Car> cars) {
         for (Car car : cars) {
-            car.printMoving();
+            System.out.println(car.printMoving());
         }
     }
 
