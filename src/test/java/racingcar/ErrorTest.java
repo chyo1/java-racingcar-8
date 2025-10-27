@@ -1,41 +1,39 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ErrorTest {
 
-    @Test
-    void checkCarNamesInputFormatTest() {
+    @ParameterizedTest
+    @ValueSource(strings = {"a, b,c", "a,b,c ", "a1,b,c"})
+    void checkCarNamesInputParameterTest(String input) {
         Error error = new Error();
-
-        // 구분자 오류
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("a, b,c");
-        });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("a,b,c ");
-        });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("a1,b,c");
-        });
 
         // 빈칸 오류
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("a,,c");
+            error.checkCarNamesInputFormat(input);
         });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat(",");
-        });
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("");
-        });
+    }
 
-        // 숫자 입력
+    @ValueSource(strings = {"a,,c", ",", ""})
+    void checkCarNamesInputBlankTest(String input) {
+        Error error = new Error();
+
+        // 빈칸 오류
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            error.checkCarNamesInputFormat("a1,b,c");
+            error.checkCarNamesInputFormat(input);
+        });
+    }
+
+    @ValueSource(strings = {"a1,b,c"})
+    void checkCarNamesInputAlphaTest(String input) {
+        Error error = new Error();
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            error.checkCarNamesInputFormat(input);
         });
     }
 
