@@ -24,4 +24,8 @@ public class Car {
     public void move() {
         movingCount++;
     }
+
+    public int getMovingCount() {
+        return movingCount;
+    }
 }
