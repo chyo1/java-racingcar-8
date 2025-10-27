@@ -25,10 +25,6 @@ public class Car {
         movingCount++;
     }
 
-    public int getMovingCount() {
-        return movingCount;
-    }
-
     public String getName() {
         return name;
     }
