@@ -17,16 +17,16 @@ class CalculatorTest {
         // given
         Calculator calculator = new Calculator();
 
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-        Car car3 = new Car("car3");
-        List<Car> cars = List.of(car1, car2, car3);
+        Car one = new Car("one");
+        Car two = new Car("two");
+        Car three = new Car("three");
+        List<Car> cars = List.of(one, two, three);
 
         // when
-        car1.move();
+        one.move();
 
         // then
-        List<Car> expected = List.of(car1);
+        List<Car> expected = List.of(one);
         Assertions.assertThat(expected).isEqualTo(calculator.getWinners(cars));
     }
 
@@ -38,18 +38,18 @@ class CalculatorTest {
         // given
         Calculator calculator = new Calculator();
 
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-        Car car3 = new Car("car3");
-        List<Car> cars = List.of(car1, car2, car3);
+        Car one = new Car("one");
+        Car two = new Car("two");
+        Car three = new Car("three");
+        List<Car> cars = List.of(one, two, three);
 
         // when
-        car1.move(); car1.move();
-        car2.move(); car2.move();
-        car3.move();
+        one.move(); one.move();
+        two.move(); two.move();
+        three.move();
 
         // then
-        List<Car> expected = List.of(car1, car2);
+        List<Car> expected = List.of(one, two);
         Assertions.assertThat(expected).isEqualTo(calculator.getWinners(cars));
     }
 
@@ -61,15 +61,15 @@ class CalculatorTest {
         // given
         Calculator calculator = new Calculator();
 
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-        Car car3 = new Car("car3");
-        List<Car> cars = List.of(car1, car2, car3);
+        Car one = new Car("one");
+        Car two = new Car("two");
+        Car three = new Car("three");
+        List<Car> cars = List.of(one, two, three);
 
         // when
 
         // then
-        List<Car> expected = List.of(car1, car2, car3);
+        List<Car> expected = List.of(one, two, three);
         Assertions.assertThat(expected).isEqualTo(calculator.getWinners(cars));
     }
 
