@@ -23,10 +23,10 @@ public class IOController {
     }
 
     // 우승자 출력
-    public void showWinner(List<String> winners) {
+    public void showWinner(List<Car> winners) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < winners.size(); i++) {
-            sb.append(winners.get(i));
+            sb.append(winners.get(i).getName());
             if (i != winners.size() - 1) {
                 sb.append(", ");
             }
